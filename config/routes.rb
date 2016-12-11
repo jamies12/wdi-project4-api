@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   scope :api do
     resources :users, except: [:create]
+    resources :spaces
     resources :contents
 
     post 'register', to: 'auth#register'
