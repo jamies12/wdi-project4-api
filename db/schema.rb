@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211153801) do
+ActiveRecord::Schema.define(version: 20161212114117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,9 +42,12 @@ ActiveRecord::Schema.define(version: 20161211153801) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_users_on_space_id", using: :btree
   end
 
   add_foreign_key "contents", "spaces"
   add_foreign_key "contents", "users"
   add_foreign_key "spaces", "users"
+  add_foreign_key "users", "spaces"
 end
