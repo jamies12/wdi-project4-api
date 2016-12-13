@@ -1,5 +1,5 @@
 class ContentSerializer < ActiveModel::Serializer
-  attributes :id, :title, :position, :body, :content_type
+  attributes :id, :title, :body, :content_type, :color, :col, :row, :sizeX, :sizeY
   belongs_to :user
   belongs_to :space
 

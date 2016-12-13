@@ -3,7 +3,7 @@ class SpacesController < ApplicationController
 
   # GET /spaces
   def index
-    @spaces = Space.all
+    @spaces = Space.where(user: current_user)
 
     render json: @spaces
   end
@@ -46,6 +46,6 @@ class SpacesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def space_params
-      params.permit(:name, :user_id, :image, :base64, content_ids: [])
+      params.permit(:name, :user_id, :image, :base64, :color, content_ids: [])
     end
 end

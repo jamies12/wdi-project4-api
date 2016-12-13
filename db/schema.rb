@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212203436) do
+ActiveRecord::Schema.define(version: 20161213193654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,17 @@ ActiveRecord::Schema.define(version: 20161212203436) do
   create_table "contents", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.integer  "position"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "audio"
     t.text     "text"
     t.integer  "space_id"
+    t.string   "color"
+    t.integer  "row",        default: 0
+    t.integer  "col",        default: 0
+    t.integer  "sizeX",      default: 0
+    t.integer  "sizeY",      default: 0
     t.index ["space_id"], name: "index_contents_on_space_id", using: :btree
     t.index ["user_id"], name: "index_contents_on_user_id", using: :btree
   end
@@ -35,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161212203436) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
+    t.string   "color"
     t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 

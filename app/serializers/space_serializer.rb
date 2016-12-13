@@ -1,5 +1,5 @@
 class SpaceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image
+  attributes :id, :name, :image, :color
   belongs_to :user
   has_many :contents
 
