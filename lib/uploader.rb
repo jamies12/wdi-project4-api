@@ -27,9 +27,11 @@ class Uploader
       uploaded_file = ActionDispatch::Http::UploadedFile.new(img_params)
 
       params[:image] = uploaded_file
-      params.delete(:base64)
 
     end
+
+    params.delete(:base64)
+
     return params
   end
 end
