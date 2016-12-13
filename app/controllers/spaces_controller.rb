@@ -15,7 +15,7 @@ class SpacesController < ApplicationController
 
   # POST /spaces
   def create
-    @space = Space.new(space_params)
+    @space = Space.new(Uploader.upload(space_params))
 
     if @space.save
       render json: @space, status: :created, location: @space
@@ -26,7 +26,7 @@ class SpacesController < ApplicationController
 
   # PATCH/PUT /spaces/1
   def update
-    if @space.update(space_params)
+    if @space.update(Uploader.upload(space_params))
       render json: @space
     else
       render json: @space.errors, status: :unprocessable_entity
@@ -46,6 +46,6 @@ class SpacesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def space_params
-      params.require(:space).permit(:name, :user_id, content_ids: [])
+      params.permit(:name, :user_id, :image, :base64, content_ids: [])
     end
 end
