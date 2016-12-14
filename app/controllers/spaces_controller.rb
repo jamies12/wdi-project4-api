@@ -15,12 +15,13 @@ class SpacesController < ApplicationController
 
   # POST /spaces
   def create
-    @space = Space.new(Uploader.upload(space_params))
+    @space = Space.new(space_params)
 
+    @space.user_id = current_user.id
     if @space.save
       render json: @space, status: :created, location: @space
     else
-      render json: @space.errors, status: :unprocessable_entity
+      render json: @space, status: :unprocessable_entity
     end
   end
 
