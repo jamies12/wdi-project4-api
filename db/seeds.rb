@@ -22,20 +22,17 @@ User.create!([{
 
 Space.create!([{
   name: "art space",
-  user_id: 1
-},{
-  name: "test area",
-  user_id: 2
-}])
-
-Content.create!([{
-  text: "Caspar David Friedrich",
-  position: 2,
   user_id: 1,
-  space_id: 1
+  image: "https://wdi-project-4-spaces.s3.amazonaws.com/4c31b96bd42304199fa2d8d4cab0ec25.jpeg",
+  color: ""
 }, {
-  title: "test!!",
-  text: "test stuff",
+  name: "inspiration",
   user_id: 2,
-  space_id: 2
+  image: "",
+  color: ""
+},{
+  name: "jigsaw",
+  user_id: 2,
+  image: "",
+  color: ""
 }])
