@@ -4,7 +4,9 @@ class ContentSerializer < ActiveModel::Serializer
   belongs_to :space
 
   def content_type
-    if object.audio
+    if object.video
+      "video"
+    elsif object.audio
       "audio"
     elsif object.text
       "text"
@@ -14,7 +16,7 @@ class ContentSerializer < ActiveModel::Serializer
   end
 
   def body
-    object.audio || object.text || object.image.url
+  object.video || object.audio || object.text || object.image.url
   end
 
 end

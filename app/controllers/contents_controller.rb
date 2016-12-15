@@ -53,6 +53,6 @@ class ContentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def content_params
-      params.permit(:user_id, :space_id, :title, :position, :image, :base64, :audio, :text, :elements, :color, :col, :row, :sizeX, :sizeY)
+      params.permit(:user_id, :space_id, :title, :position, :image, :base64, :audio, :text, :elements, :color, :col, :row, :sizeX, :sizeY, :video)
     end
 end
